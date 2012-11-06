@@ -117,6 +117,158 @@ $ git help
           <section>
             <h2>Git Basics</h2>
           </section>
+          <section>
+            <h2>Initializing a Repository</h2>
+            <pre><code>
+# Create a directory for your project
+$ mkdir ~/my-project
+$ cd ~/my-project
+
+# Setup necessary files
+$ git init
+            </code></pre>
+          </section>
+          
+          <section>
+            <h2>Cloning an Existing Repository</h2>
+            <pre><code>
+$ git clone https://github.com/user-name/my-project.git
+            </code></pre>
+          </section>
+          
+          <section>
+            <h2>File Status Lifecycle</h2>
+            <img src="images/file-status-lifecycle.png" />
+          </section>
+          
+          <section>
+            <h2>Check Status</h2>
+            <pre><code>
+$ git status
+# On branch master
+#
+# Initial commit
+#
+nothing to commit (create/copy files and use "git add" to track)
+            </code></pre>
+          </section>
+          
+          <section>
+            <h2>Creat a File</h2>
+            <pre><code>
+$ touch README
+$ git status
+# On branch master
+#
+# Initial commit
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+# README
+nothing added to commit but untracked files present (use "git add" to track)
+            </code></pre>
+          </section>
+          
+          <section>
+            <h2>Add Changes to the Staging Area</h2>
+            <pre><code>
+$ git add README
+$ git status
+# On branch master
+#
+# Initial commit
+#
+# Changes to be committed:
+#   (use "git rm --cached <file>..." to unstage)
+#
+# new file:   README
+#
+            </code></pre>
+          </section>
+          
+          <section>
+            <h2>Commit Staged Files</h2>
+            <pre><code>
+$ git commit -m 'My first commit'
+[master (root-commit) d3b1065] My first commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 README
+
+$ git status
+# On branch master
+nothing to commit (working directory clean)
+            </code></pre>
+          </section>
+          
+          <section>
+            <h2>Modify a Committed File</h2>
+            <pre><code>
+$ nano README 
+$ git status
+# On branch master
+# Changes not staged for commit:
+#   (use "git add <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+# modified:   README
+#
+no changes added to commit (use "git add" and/or "git commit -a")
+            </code></pre>
+          </section>
+          
+          <section>
+            <h2>View Changes</h2>
+            <pre><code>
+$ git diff
+diff --git a/README b/README
+index 56266d3..9cbeb31 100644
+--- a/README
++++ b/README
+@@ -1 +1 @@
+-My Project
++My Project Updated
+            </code></pre>
+          </section>
+          
+          <section>
+            <h2>Stage Changes</h2>
+            <pre><code>
+$ git add README
+$ git status
+# On branch master
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+# modified:   README
+#
+            </code></pre>
+          </section>
+          
+          <section>
+            <h2>Commit Changes</h2>
+            <pre><code>
+$ git commit -m 'Updated README'
+[master 1302816] Updated README
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+$ git status
+# On branch master
+nothing to commit (working directory clean)
+            </code></pre>
+          </section>
+          
+          <section>
+            <h2>Push Commits</h2>
+            <pre><code>
+# Create a remote named "origin" pointing at your repo
+$ git remote add origin https://github.com/user-name/my-project.git
+
+# Upload your commits in the "master" branch to the repo
+$ git push origin master
+            </code></pre>
+          </section>
+          
         </section>
       </div>
 		</div>
