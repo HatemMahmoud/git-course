@@ -343,11 +343,148 @@ $ git pull
           </section>
           
           <section>
-            <h2>Branching and Merging</h2>
+            <h2>Master Branch</h2>
+            <img src="images/branching-master.png" />
+          </section>
+          
+          <section>
+            <h2>Create a Branch</h2>
             <pre><code>
-$ git help
+$ git branch iss53
+$ git checkout iss53
+Switched to a new branch "iss53"
+            </code></pre>
+            <img src="images/branching-iss53.png" />
+          </section>
+          
+          <section>
+            <h2>Commit to Branch</h2>
+            <pre><code>
+# Update some files
+
+$ git commit -a -m 'Changes for issue #53'
+            </code></pre>
+            <img src="images/branching-iss53-commit.png" />
+          </section>
+          
+          <section>
+            <h2>Create Another Branch</h2>
+            <pre><code>
+$ git checkout master
+Switched to branch "master"
+
+$ git checkout -b 'hotfix'
+Switched to a new branch "hotfix"
+
+# Update some files
+
+$ git commit -a -m 'Fixed broken feature'
+[hotfix]: created 3a0874c: "Fixed broken feature"
+ 1 files changed, 0 insertions(+), 1 deletions(-)
+            </code></pre>
+            <img src="images/branching-hotfix.png" />
+          </section>
+          
+          <section>
+            <h2>Fast-forward Merge</h2>
+            <pre><code>
+$ git checkout master
+$ git merge hotfix
+Updating f42c576..3a0874c
+Fast forward
+ README |    1 -
+ 1 files changed, 0 insertions(+), 1 deletions(-)
+            </code></pre>
+            <img src="images/branching-hotfix-merged.png" />
+          </section>
+          
+          <section>
+            <h2>Switch Back to Branch</h2>
+            <pre><code>
+$ git branch -d hotfix
+Deleted branch hotfix (3a0874c).
+
+$ git checkout iss53
+Switched to branch "iss53"
+
+# Update some files
+
+$ git commit -a -m 'Finished changes for issue #53'
+[iss53]: created ad82d7a: "Finished changes for issue #53"
+ 1 files changed, 1 insertions(+), 0 deletions(-)
+            </code></pre>
+            <img src="images/branching-iss53-finished.png" />
+          </section>
+          
+          <section>
+            <h2>Three-way Merge</h2>
+            <pre><code>
+$ git checkout master
+$ git merge iss53
+Merge made by recursive.
+ README |    1 +
+ 1 files changed, 1 insertions(+), 0 deletions(-)
+            </code></pre>
+            <img src="images/branching-iss53-merge.png" />
+          </section>
+          
+          <section>
+            <h2>Merge Commit</h2>
+            <img src="images/branching-iss53-merged.png" />
+          </section>
+          
+          <section>
+            <h2>Merge Conflict</h2>
+            <pre><code>
+$ git merge iss53
+Auto-merging index.html
+CONFLICT (content): Merge conflict in index.html
+Automatic merge failed; fix conflicts and then commit the result.
+
+$ git status
+index.html: needs merge
+# On branch master
+# Changed but not updated:
+#   (use "git add <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#   unmerged:   index.html
+#
             </code></pre>
           </section>
+          
+          <section>
+            <h2>Conflict-resolution Markers</h2>
+            <pre><code>
+<<<<<<< HEAD:index.html
+Some content here.
+=======
+Another content here.
+>>>>>>> iss53:index.html
+            </code></pre>
+          </section>
+          
+          <section>
+            <h2>Resolve Conflicts</h2>
+            <pre><code>
+# Update some files
+
+$ git add .
+
+$ git commit
+Merge branch 'iss53'
+
+Conflicts:
+  index.html
+#
+# It looks like you may be committing a MERGE.
+# If this is not correct, please remove the file
+# .git/MERGE_HEAD
+# and try again.
+#
+            </code></pre>
+          </section>
+          
         </section>
         
       </div>
