@@ -116,9 +116,11 @@
             <h2>Git Setup</h2>
             <pre><code>
 $ git config --global user.name "Hatem Mahmoud"
-
+            </code></pre>
+            <pre class="fragment fade-up"><code>
 $ git config --global user.email "hatem@expressionlab.com"
-
+            </code></pre>
+            <pre class="fragment fade-up"><code>
 $ git config --list
 user.name=Hatem Mahmoud
 user.email=hatem@expressionlab.com
@@ -132,7 +134,8 @@ core.fscache=true
             <h2>Getting Help</h2>
             <pre><code>
 $ git help
-
+            </code></pre>
+            <pre class="fragment fade-up"><code>
 $ git help config
             </code></pre>
           </section>
@@ -140,10 +143,14 @@ $ git help config
             <h2>Initializing a Repository</h2>
             <pre><code>
 $ mkdir ~/my-project
-
+            </code></pre>
+            <pre class="fragment fade-up"><code>
 $ cd ~/my-project
-
+            </code></pre>
+            <pre class="fragment fade-up"><code>
 $ git init
+
+Initialized empty Git repository in ~/my-project/.git/
             </code></pre>
           </section>
           
@@ -168,6 +175,7 @@ Unpacking objects: 100% (3/3), done.
             <h2>Check Status</h2>
             <pre><code>
 $ git status
+
 # On branch master
 #
 # Initial commit
@@ -177,11 +185,13 @@ nothing to commit (create/copy files and use "git add" to track)
           </section>
           
           <section>
-            <h2>Creat a File</h2>
+            <h2>Creat a New File</h2>
             <pre><code>
 $ touch README
-
+            </code></pre>
+            <pre class="fragment fade-up"><code>
 $ git status
+
 # On branch master
 #
 # Initial commit
@@ -195,17 +205,19 @@ nothing added to commit but untracked files present (use "git add" to track)
           </section>
           
           <section>
-            <h2>Add Changes to the Staging Area</h2>
+            <h2>Stage the New File</h2>
             <pre><code>
 $ git add README
-
+            </code></pre>
+            <pre class="fragment fade-up"><code>
 $ git status
+
 # On branch master
 #
 # Initial commit
 #
 # Changes to be committed:
-#   (use "git rm --cached <file>..." to unstage)
+#   (use "git rm --cached &lt;file&gt;..." to unstage)
 #
 # new file:   README
 #
@@ -215,12 +227,14 @@ $ git status
           <section>
             <h2>Commit Staged Files</h2>
             <pre><code>
-$ git commit -m 'My first commit'
-[master (root-commit) d3b1065] My first commit
- 1 file changed, 1 insertion(+)
- create mode 100644 README
+$ git commit -m 'Added README'
 
+[master (root-commit) d3b1065] Added README
+ 1 file changed, 1 insertion(+)
+            </code></pre>
+            <pre class="fragment fade-up"><code>
 $ git status
+
 # On branch master
 nothing to commit (working directory clean)
             </code></pre>
@@ -230,12 +244,14 @@ nothing to commit (working directory clean)
             <h2>Modify a Committed File</h2>
             <pre><code>
 $ nano README
-
+            </code></pre>
+            <pre class="fragment fade-up"><code>
 $ git status
+
 # On branch master
 # Changes not staged for commit:
-#   (use "git add <file>..." to update what will be committed)
-#   (use "git checkout -- <file>..." to discard changes in working directory)
+#   (use "git add &lt;file&gt;..." to update what will be committed)
+#   (use "git checkout -- &lt;file&gt;..." to discard changes in working directory)
 #
 # modified:   README
 #
@@ -244,11 +260,13 @@ no changes added to commit (use "git add" and/or "git commit -a")
           </section>
           
           <section>
-            <h2>Unmodify a Modified File</h2>
+            <h2>Discard Changes</h2>
             <pre><code>
 $ git checkout README
-
+            </code></pre>
+            <pre class="fragment fade-up"><code>
 $ git status
+
 # On branch master
 nothing to commit (working directory clean)
             </code></pre>
@@ -258,25 +276,17 @@ nothing to commit (working directory clean)
             <h2>View Changes</h2>
             <pre><code>
 $ nano README
-
+            </code></pre>
+            <pre class="fragment fade-up"><code>
 $ git diff
+
 diff --git a/README b/README
 index 56266d3..9cbeb31 100644
 --- a/README
 +++ b/README
 @@ -1 +1 @@
--My Project
-+My Project Updated
-            </code></pre>
-          </section>
-          
-          <section>
-            <h2>Ignore Some Files</h2>
-            <pre><code>
-# .gitignore
-/log/*
-/tmp/*
-.DS_Store
+-Welcome
++Welcome to My Project
             </code></pre>
           </section>
           
@@ -284,11 +294,13 @@ index 56266d3..9cbeb31 100644
             <h2>Stage Changes</h2>
             <pre><code>
 $ git add README
-
+            </code></pre>
+            <pre class="fragment fade-up"><code>
 $ git status
+
 # On branch master
 # Changes to be committed:
-#   (use "git reset HEAD <file>..." to unstage)
+#   (use "git reset HEAD &lt;file&gt;..." to unstage)
 #
 # modified:   README
 #
@@ -299,14 +311,17 @@ $ git status
             <h2>Unstage a Staged File</h2>
             <pre><code>
 $ git reset HEAD README
+
 Unstaged changes after reset:
 M README
-
+            </code></pre>
+            <pre class="fragment fade-up"><code>
 $ git status
+
 # On branch master
 # Changes not staged for commit:
-#   (use "git add <file>..." to update what will be committed)
-#   (use "git checkout -- <file>..." to discard changes in working directory)
+#   (use "git add &lt;file&gt;..." to update what will be committed)
+#   (use "git checkout -- &lt;file&gt;..." to discard changes in working directory)
 #
 # modified:   README
 #
@@ -318,11 +333,16 @@ no changes added to commit (use "git add" and/or "git commit -a")
             <h2>Commit Changes</h2>
             <pre><code>
 $ git add .
+            </code></pre>
+            <pre class="fragment fade-up"><code>
 $ git commit -m 'Updated README'
+
 [master 1302816] Updated README
  1 file changed, 1 insertion(+), 1 deletion(-)
-
+            </code></pre>
+            <pre class="fragment fade-up"><code>
 $ git status
+
 # On branch master
 nothing to commit (working directory clean)
             </code></pre>
@@ -332,17 +352,29 @@ nothing to commit (working directory clean)
             <h2>View Commit History</h2>
             <pre><code>
 $ git log
+
 commit 1302816b21570a5ad712ee166e16e16dc12d011b
-Author: Hatem Mahmoud <hatem@expressionlab.com>
+Author: Hatem Mahmoud &lt;hatem@expressionlab.com&gt;
 Date:   Wed Nov 7 00:19:54 2012 +0200
 
     Updated README
 
 commit d3b1065899c14c192ad9af0227615f4d665d4195
-Author: Hatem Mahmoud <hatem@expressionlab.com>
+Author: Hatem Mahmoud &lt;hatem@expressionlab.com&gt;
 Date:   Tue Nov 6 23:59:26 2012 +0200
 
-    My first commit
+    Added README
+            </code></pre>
+          </section>
+          
+          <section>
+            <h2>Ignore Some Files</h2>
+            <pre><code>
+# .gitignore
+
+log/*.log
+tmp/**
+.DS_Store
             </code></pre>
           </section>
           
@@ -362,7 +394,10 @@ Date:   Tue Nov 6 23:59:26 2012 +0200
             <h2>Create a Branch</h2>
             <pre><code>
 $ git branch iss53
+            </code></pre>
+            <pre class="fragment fade-up"><code>
 $ git checkout iss53
+
 Switched to a new branch "iss53"
             </code></pre>
             <img src="images/branching-iss53.png" />
@@ -382,14 +417,19 @@ $ git commit -a -m 'Changes for issue #53'
             <h2>Create Another Branch</h2>
             <pre><code>
 $ git checkout master
+
 Switched to branch "master"
-
+            </code></pre>
+            <pre class="fragment fade-up"><code>
 $ git checkout -b 'hotfix'
-Switched to a new branch "hotfix"
 
+Switched to a new branch "hotfix"
+            </code></pre>
+            <pre class="fragment fade-up"><code>
 # Update some files
 
 $ git commit -a -m 'Fixed broken feature'
+
 [hotfix]: created 3a0874c: "Fixed broken feature"
  1 files changed, 0 insertions(+), 1 deletions(-)
             </code></pre>
@@ -400,7 +440,10 @@ $ git commit -a -m 'Fixed broken feature'
             <h2>Fast-forward Merge</h2>
             <pre><code>
 $ git checkout master
+            </code></pre>
+            <pre class="fragment fade-up"><code>
 $ git merge hotfix
+
 Updating f42c576..3a0874c
 Fast forward
  README |    1 -
@@ -413,14 +456,19 @@ Fast forward
             <h2>Switch Back to Branch</h2>
             <pre><code>
 $ git branch -d hotfix
+
 Deleted branch hotfix (3a0874c).
-
+            </code></pre>
+            <pre class="fragment fade-up"><code>
 $ git checkout iss53
-Switched to branch "iss53"
 
+Switched to branch "iss53"
+            </code></pre>
+            <pre class="fragment fade-up"><code>
 # Update some files
 
 $ git commit -a -m 'Finished changes for issue #53'
+
 [iss53]: created ad82d7a: "Finished changes for issue #53"
  1 files changed, 1 insertions(+), 0 deletions(-)
             </code></pre>
@@ -431,7 +479,10 @@ $ git commit -a -m 'Finished changes for issue #53'
             <h2>Three-way Merge</h2>
             <pre><code>
 $ git checkout master
+            </code></pre>
+            <pre class="fragment fade-up"><code>
 $ git merge iss53
+
 Merge made by recursive.
  README |    1 +
  1 files changed, 1 insertions(+), 0 deletions(-)
@@ -448,16 +499,19 @@ Merge made by recursive.
             <h2>Merge Conflict</h2>
             <pre><code>
 $ git merge iss53
+
 Auto-merging index.html
 CONFLICT (content): Merge conflict in index.html
 Automatic merge failed; fix conflicts and then commit the result.
-
+            </code></pre>
+            <pre class="fragment fade-up"><code>
 $ git status
+
 index.html: needs merge
 # On branch master
 # Changed but not updated:
-#   (use "git add <file>..." to update what will be committed)
-#   (use "git checkout -- <file>..." to discard changes in working directory)
+#   (use "git add &lt;file&gt;..." to update what will be committed)
+#   (use "git checkout -- &lt;file&gt;..." to discard changes in working directory)
 #
 #   unmerged:   index.html
 #
@@ -481,8 +535,10 @@ Another content here.
 # Update some files
 
 $ git add .
-
+            </code></pre>
+            <pre class="fragment fade-up"><code>
 $ git commit
+
 Merge branch 'iss53'
 
 Conflicts:
@@ -505,9 +561,10 @@ Conflicts:
           <section>
             <h2>Get Updates</h2>
             <pre><code>
-# Fetch updates 
+# Fetch updates
 $ git fetch origin
-
+            </code></pre>
+            <pre class="fragment fade-up"><code>
 # Fetch updates and merge them
 $ git pull
             </code></pre>
@@ -518,7 +575,8 @@ $ git pull
             <pre><code>
 # Create a remote named "origin" pointing at your repo
 $ git remote add origin https://github.com/HatemMahmoud/my-project.git
-
+            </code></pre>
+            <pre class="fragment fade-up"><code>
 # Upload your commits in the "master" branch to the repo
 $ git push origin master
             </code></pre>
