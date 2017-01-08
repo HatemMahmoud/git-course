@@ -48,24 +48,48 @@
             <h1>Introduction</h1>
           </section>
           <section>
-            <h2>Version Control</h2>
+            <h2>Version Control System</h2>
             <p>A system that records changes to a file or set of files over time so that you can recall specific versions later.</p>
           </section>
           <section>
-            <h2>Version Control</h2>
-            <p>It allows you to revert files back to a previous state, revert the entire project back to a previous state, compare changes over time, see who last modified something that might be causing a problem, who introduced an issue and when, and more.</p>
+            <h2>Version Control Allows You to..</h2>
+                <ul>
+                    <li>Revert a file back to a previous state,</li>
+                    <li>Revert the entire project back to a previous state,</li>
+                    <li>Compare changes over time,</li>
+                    <li>See who last modified something causing a problem,</li>
+                    <li>Who introduced an issue and when,</li>
+                    <li>.. and more.</li>
+                </ul>
           </section>
           <section>
             <h2>Local Version Control</h2>
-            <img src="images/local-version-control.png" />
+            <img style="max-width: 70%; max-height: 70%;" src="images/local-version-control.png" />
           </section>
           <section>
             <h2>Centralized Version Control</h2>
             <img src="images/centralized-version-control.png" />
           </section>
           <section>
+            <h2>Centralized Version Control</h2>
+            <img style="width: 95%;" src="images/differences.png" />
+          </section>
+          <section>
             <h2>Distributed Version Control</h2>
-            <img src="images/distributed-version-control.png" />
+            <img style="max-width: 50%; max-height: 50%;" src="images/distributed-version-control.png" />
+          </section>
+          <section>
+            <h2>Distributed Version Control</h2>
+            <img style="width: 95%;" src="images/snapshots.png" />
+          </section>
+          <section>
+            <h2>Distributed Version Control</h2>
+            <ul>
+              <li>Most operations are local.</li>
+              <li>Project's entire history is on your local disk.</li>
+              <li>No network latency overhead.</li>
+              <li>Work offline until you get to a network connection.</li>
+            </ul>
           </section>
           <section>
             <h2>Git History</h2>
@@ -75,24 +99,13 @@
               <li>In 2005, Linus Torvalds designed his own system, Git, influenced by BitKeeper.</li>
             </ul>
           </section>
+        </section>
+        <section>
           <section>
-            <h2>Other Systems Store Differences</h2>
-            <img src="images/differences.png" />
+            <h1>Git Basics</h1>
           </section>
           <section>
-            <h2>Git Stores Snapshots</h2>
-            <img src="images/snapshots.png" />
-          </section>
-          <section>
-            <h2>Most Operations are Local</h2>
-            <ul>
-              <li>Project's entire history is on your local disk.</li>
-              <li>No network latency overhead.</li>
-              <li>Work offline until you get to a network connection to upload.</li>
-            </ul>
-          </section>
-          <section>
-            <h2>Three States</h2>
+            <h2>The Three States</h2>
             <img src="images/local-operations.png" />
           </section>
           <section>
@@ -102,32 +115,34 @@
           <section>
             <h2>Git Setup</h2>
             <pre><code>
-# Sets the default name for git to use when you commit
 $ git config --global user.name "Hatem Mahmoud"
 
-# Sets the default email for git to use when you commit
 $ git config --global user.email "hatem@expressionlab.com"
+
+$ git config --list
+user.name=Hatem Mahmoud
+user.email=hatem@expressionlab.com
+core.symlinks=false
+core.autocrlf=true
+core.fscache=true
+...
             </code></pre>
           </section>
           <section>
             <h2>Getting Help</h2>
             <pre><code>
 $ git help
+
+$ git help config
             </code></pre>
-          </section>
-        </section>
-        <section>
-          <section>
-            <h1>Git Basics</h1>
           </section>
           <section>
             <h2>Initializing a Repository</h2>
             <pre><code>
-# Create a directory for your project
 $ mkdir ~/my-project
+
 $ cd ~/my-project
 
-# Setup necessary files
 $ git init
             </code></pre>
           </section>
@@ -136,6 +151,7 @@ $ git init
             <h2>Cloning an Existing Repository</h2>
             <pre><code>
 $ git clone https://github.com/HatemMahmoud/my-project.git
+
 Cloning into 'my-project'...
 remote: Counting objects: 3, done.
 remote: Total 3 (delta 0), reused 0 (delta 0)
@@ -145,7 +161,7 @@ Unpacking objects: 100% (3/3), done.
           
           <section>
             <h2>File Status Lifecycle</h2>
-            <img src="images/file-status-lifecycle.png" />
+            <img style="width: 95%;" src="images/file-status-lifecycle.png" />
           </section>
           
           <section>
