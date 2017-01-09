@@ -52,15 +52,12 @@
             <p>A system that records changes to a file or set of files over time so that you can recall specific versions later.</p>
           </section>
           <section>
-            <h2>Version Control Allows You to..</h2>
-                <ul>
-                    <li>Revert a file back to a previous state,</li>
-                    <li>Revert the entire project back to a previous state,</li>
-                    <li>Compare changes over time,</li>
-                    <li>See who last modified something causing a problem,</li>
-                    <li>Who introduced an issue and when,</li>
-                    <li>.. and more.</li>
-                </ul>
+            <h2>Benefits of Version Control</h2>
+                <ol>
+                    <li>A complete long-term change history of every file enables going back to previous versions and comparing changes over time.</li>
+                    <li>Branching keeps multiple streams of work independent while providing the facility to merge back.</li>
+                    <li>Traceability using annotation messages with each change to describe the purpose and connect it to project management tools.</li>
+                </ol>
           </section>
           <section>
             <h2>Local Version Control</h2>
@@ -92,21 +89,25 @@
             </ul>
           </section>
           <section>
-            <h2>Git History</h2>
+            <h2>Git</h2>
             <ul>
-              <li>Between 1991 and 2002, changes to the Linux kernel project were passed around as patches and archived files.</li>
-              <li>In 2002, it began using BitKeeper, a proprietary distributed version control system.</li>
-              <li>In 2005, Linus Torvalds designed his own system, Git, influenced by BitKeeper.</li>
+                <li>The most widely used distributed version control system.</li>
+                <li>A mature, actively maintained open source project.</li>
+                <li>Created in 2005 by Linus Torvalds, the creator of Linux.</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Why Git</h2>
+            <ul>
+                <li>Performance: branching, merging and comparing past versions are all optimized for performance.</li>
+                <li>Security: files, directories, versions, tags and commits are all secured with a cryptographically secure hashing algorithm (SHA1).</li>
+                <li>Flexibility: branching and tagging are first-class citizens; merging and reverting are stored as part of the change history.</li>
             </ul>
           </section>
         </section>
         <section>
           <section>
             <h1>Git Basics</h1>
-          </section>
-          <section>
-            <h2>The Three States</h2>
-            <img src="images/local-operations.png" />
           </section>
           <section>
             <h2>Installing Git</h2>
@@ -164,6 +165,11 @@ remote: Counting objects: 3, done.
 remote: Total 3 (delta 0), reused 0 (delta 0)
 Unpacking objects: 100% (3/3), done.
             </code></pre>
+          </section>
+            
+          <section>
+            <h2>The Three States</h2>
+            <img src="images/local-operations.png" />
           </section>
           
           <section>
@@ -400,7 +406,7 @@ $ git checkout iss53
 
 Switched to a new branch "iss53"
             </code></pre>
-            <img src="images/branching-iss53.png" />
+            <img class="fragment fade-up" src="images/branching-iss53.png" />
           </section>
           
           <section>
@@ -417,23 +423,18 @@ $ git commit -a -m 'Changes for issue #53'
             <h2>Create Another Branch</h2>
             <pre><code>
 $ git checkout master
-
 Switched to branch "master"
             </code></pre>
             <pre class="fragment fade-up"><code>
 $ git checkout -b 'hotfix'
-
 Switched to a new branch "hotfix"
             </code></pre>
             <pre class="fragment fade-up"><code>
-# Update some files
-
 $ git commit -a -m 'Fixed broken feature'
-
 [hotfix]: created 3a0874c: "Fixed broken feature"
  1 files changed, 0 insertions(+), 1 deletions(-)
             </code></pre>
-            <img src="images/branching-hotfix.png" />
+            <img class="fragment fade-up" src="images/branching-hotfix.png" />
           </section>
           
           <section>
@@ -449,30 +450,25 @@ Fast forward
  README |    1 -
  1 files changed, 0 insertions(+), 1 deletions(-)
             </code></pre>
-            <img src="images/branching-hotfix-merged.png" />
+            <img class="fragment fade-up" src="images/branching-hotfix-merged.png" />
           </section>
           
           <section>
             <h2>Switch Back to Branch</h2>
             <pre><code>
 $ git branch -d hotfix
-
 Deleted branch hotfix (3a0874c).
             </code></pre>
             <pre class="fragment fade-up"><code>
 $ git checkout iss53
-
 Switched to branch "iss53"
             </code></pre>
             <pre class="fragment fade-up"><code>
-# Update some files
-
 $ git commit -a -m 'Finished changes for issue #53'
-
 [iss53]: created ad82d7a: "Finished changes for issue #53"
  1 files changed, 1 insertions(+), 0 deletions(-)
             </code></pre>
-            <img src="images/branching-iss53-finished.png" />
+            <img class="fragment fade-up" src="images/branching-iss53-finished.png" />
           </section>
           
           <section>
@@ -482,12 +478,11 @@ $ git checkout master
             </code></pre>
             <pre class="fragment fade-up"><code>
 $ git merge iss53
-
 Merge made by recursive.
  README |    1 +
  1 files changed, 1 insertions(+), 0 deletions(-)
             </code></pre>
-            <img src="images/branching-iss53-merge.png" />
+            <img class="fragment fade-up" src="images/branching-iss53-merge.png" />
           </section>
           
           <section>
@@ -537,18 +532,9 @@ Another content here.
 $ git add .
             </code></pre>
             <pre class="fragment fade-up"><code>
-$ git commit
+$ git commit -m 'Resolved conflict'
 
-Merge branch 'iss53'
-
-Conflicts:
-  index.html
-#
-# It looks like you may be committing a MERGE.
-# If this is not correct, please remove the file
-# .git/MERGE_HEAD
-# and try again.
-#
+[master a541942] Resolved conflict
             </code></pre>
           </section>
         </section>
