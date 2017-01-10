@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>Introduction to Git</title>
+		<title>Version Control with Git</title>
 
 		<link rel="stylesheet" href="css/reveal.css">
 		<link rel="stylesheet" href="css/theme/night.css">
@@ -25,10 +25,10 @@
 		<div class="reveal">
 			<div class="slides">
         <section>
-            <h1>Introduction to Git</h1>
-            <p>Hatem Mahmoud</p>
+            <h1>Version Control with Git</h1>
             <p>
-              <small><a href="http://www.expressionlab.com" target="_blank">ExpressionLab.com</a></small>
+                Hatem Mahmoud<br />
+                <small><a href="mailto:hatem@expressionlab.com">hatem@expressionlab.com</a></small>
             </p>
         </section>
         <section>
@@ -38,8 +38,8 @@
             <li>Git Basics</li>
             <li>Branching and Merging</li>
             <li>Updating and Sharing</li>
+            <li>Trying Git</li>
             <li>Using GitHub</li>
-            <li>Git Tools</li>
             <li>Resources</li>
           </ul>
         </section>
@@ -116,6 +116,11 @@
           <section>
             <h2>Git Setup</h2>
             <pre><code>
+$ git --version
+
+git version 2.11.0.windows.1
+            </code></pre>
+            <pre class="fragment fade-up"><code>
 $ git config --global user.name "Hatem Mahmoud"
             </code></pre>
             <pre class="fragment fade-up"><code>
@@ -123,6 +128,7 @@ $ git config --global user.email "hatem@expressionlab.com"
             </code></pre>
             <pre class="fragment fade-up"><code>
 $ git config --list
+
 user.name=Hatem Mahmoud
 user.email=hatem@expressionlab.com
 core.symlinks=false
@@ -178,7 +184,7 @@ Unpacking objects: 100% (3/3), done.
           </section>
           
           <section>
-            <h2>Check Status</h2>
+            <h2>Checking Status</h2>
             <pre><code>
 $ git status
 
@@ -567,6 +573,12 @@ $ git remote add origin https://github.com/HatemMahmoud/my-project.git
 $ git push origin master
             </code></pre>
           </section>
+        </section>
+        
+        <section>
+          <section>
+            <h1>Trying Git</h1>
+          </section>
           <section>
             <a href="http://try.github.com" target="_blank"><img src="images/try-git.png" /></a>
           </section>
@@ -577,38 +589,13 @@ $ git push origin master
             <h1>Using GitHub</h1>
           </section>
           <section>
-            <h2>GitHub</h2>
-            <p>An online code hosting platform for version control and collaboration using Git.</p>
-          </section>
-          <section>
-            <img src="images/github.png" />
-          </section>
-          <section>
-            <img src="images/github-new-repo.png" />
-          </section>
-          <section>
-            <img src="images/github-repo.png" />
-          </section>
-          <section>
-            <img src="images/github-commits.png" />
-          </section>
-          <section>
-            <img src="images/github-branches.png" />
-          </section>
-          <section>
-            <img src="images/github-network.png" />
-          </section>
-          <section>
-            <img src="images/github-issues.png" />
-          </section>
-          <section>
-            <img src="images/github-admin.png" />
-          </section>
-          <section>
-            <a href="http://desktop.github.com" target="_blank"><img src="images/github-windows.png" /></a>
+            <a href="http://github.com" target="_blank"><img src="images/github.png" /></a>
           </section>
           <section>
             <img src="images/github-hello-world.png" />
+          </section>
+          <section>
+            <a href="http://desktop.github.com" target="_blank"><img src="images/github-windows.png" /></a>
           </section>
         </section>
         
@@ -632,9 +619,9 @@ $ git push origin master
         
         <section>
             <h1>Thank You!</h1>
-            <p>Hatem Mahmoud</p>
             <p>
-              <small><a href="http://www.expressionlab.com" target="_blank">ExpressionLab.com</a></small>
+                Hatem Mahmoud<br />
+                <small><a href="mailto:hatem@expressionlab.com">hatem@expressionlab.com</a></small>
             </p>
         </section>
         
@@ -648,12 +635,13 @@ $ git push origin master
 			// More info https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({
 				history: true,
-
+                transition: 'convex', // none/fade/slide/convex/concave/zoom
 				// More info https://github.com/hakimel/reveal.js#dependencies
 				dependencies: [
 					{ src: 'plugin/markdown/marked.js' },
 					{ src: 'plugin/markdown/markdown.js' },
 					{ src: 'plugin/notes/notes.js', async: true },
+                    { src: 'plugin/zoom-js/zoom.js', async: true },
 					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
 				]
 			});
