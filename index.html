@@ -1,33 +1,34 @@
 <!doctype html>
-<html lang="en">
+<html>
 	<head>
 		<meta charset="utf-8">
-		<title>Introduction to Git</title>
-		<meta name="description" content="Introduction to Git">
-		<meta name="author" content="Hatem Mahmoud">
-		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Version Control with Git</title>
+
 		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/default.css" id="theme">
-		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="css/theme/night.css">
+
+		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
-		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+
+		<!-- Printing and PDF exports -->
 		<script>
-			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
 		</script>
-		<!--[if lt IE 9]>
-		<script src="lib/js/html5shiv.js"></script>
-		<![endif]-->
 	</head>
 	<body>
 		<div class="reveal">
-			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
         <section>
-            <h1>Introduction to Git</h1>
-            <p>Hatem Mahmoud</p>
+            <h1>Version Control with Git</h1>
             <p>
-              <small><a href="http://www.expressionlab.com" class="roll"><span data-title="ExpressionLab.com">ExpressionLab.com</span></a></small>
+                Hatem Mahmoud<br />
+                <small><a href="mailto:hatem@expressionlab.com">hatem@expressionlab.com</a></small>
             </p>
         </section>
         <section>
@@ -37,8 +38,8 @@
             <li>Git Basics</li>
             <li>Branching and Merging</li>
             <li>Updating and Sharing</li>
+            <li>Trying Git</li>
             <li>Using GitHub</li>
-            <li>Git Tools</li>
             <li>Resources</li>
           </ul>
         </section>
@@ -47,52 +48,66 @@
             <h1>Introduction</h1>
           </section>
           <section>
-            <h2>Version Control</h2>
+            <h2>Version Control System</h2>
             <p>A system that records changes to a file or set of files over time so that you can recall specific versions later.</p>
           </section>
           <section>
-            <h2>Version Control</h2>
-            <p>It allows you to revert files back to a previous state, revert the entire project back to a previous state, compare changes over time, see who last modified something that might be causing a problem, who introduced an issue and when, and more.</p>
+            <h2>Benefits of Version Control</h2>
+                <ol>
+                    <li>A complete long-term change history of every file enables going back to previous versions and comparing changes over time.</li>
+                    <li>Branching keeps multiple streams of work independent while providing the facility to merge back.</li>
+                    <li>Traceability using annotation messages with each change to describe the purpose and connect it to project management tools.</li>
+                </ol>
           </section>
           <section>
             <h2>Local Version Control</h2>
-            <img src="images/local-version-control.png" />
+            <img style="max-width: 70%; max-height: 70%;" src="images/local-version-control.png" />
           </section>
           <section>
             <h2>Centralized Version Control</h2>
             <img src="images/centralized-version-control.png" />
           </section>
           <section>
+            <h2>Centralized Version Control</h2>
+            <img style="width: 95%;" src="images/differences.png" />
+          </section>
+          <section>
             <h2>Distributed Version Control</h2>
-            <img src="images/distributed-version-control.png" />
+            <img style="max-width: 50%; max-height: 50%;" src="images/distributed-version-control.png" />
           </section>
           <section>
-            <h2>Git History</h2>
+            <h2>Distributed Version Control</h2>
+            <img style="width: 95%;" src="images/snapshots.png" />
+          </section>
+          <section>
+            <h2>Distributed Version Control</h2>
             <ul>
-              <li>Between 1991 and 2002, changes to the Linux kernel project were passed around as patches and archived files.</li>
-              <li>In 2002, it began using BitKeeper, a proprietary distributed version control system.</li>
-              <li>In 2005, Linus Torvalds designed his own system, Git, influenced by BitKeeper.</li>
-            </ul>
-          </section>
-          <section>
-            <h2>Other Systems Store Differences</h2>
-            <img src="images/differences.png" />
-          </section>
-          <section>
-            <h2>Git Stores Snapshots</h2>
-            <img src="images/snapshots.png" />
-          </section>
-          <section>
-            <h2>Most Operations are Local</h2>
-            <ul>
+              <li>Most operations are local.</li>
               <li>Project's entire history is on your local disk.</li>
               <li>No network latency overhead.</li>
-              <li>Work offline until you get to a network connection to upload.</li>
+              <li>Work offline until you get to a network connection.</li>
             </ul>
           </section>
           <section>
-            <h2>Three States</h2>
-            <img src="images/local-operations.png" />
+            <h2>Git</h2>
+            <ul>
+                <li>The most widely used distributed version control system.</li>
+                <li>A mature, actively maintained open source project.</li>
+                <li>Created in 2005 by Linus Torvalds, the creator of Linux.</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Why Git</h2>
+            <ul>
+                <li>Performance: branching, merging and comparing past versions are all optimized for performance.</li>
+                <li>Security: files, directories, versions, tags and commits are all secured with a cryptographically secure hashing algorithm (SHA1).</li>
+                <li>Flexibility: branching and tagging are first-class citizens; merging and reverting are stored as part of the change history.</li>
+            </ul>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h1>Git Basics</h1>
           </section>
           <section>
             <h2>Installing Git</h2>
@@ -101,11 +116,25 @@
           <section>
             <h2>Git Setup</h2>
             <pre><code>
-# Sets the default name for git to use when you commit
-$ git config --global user.name "Hatem Mahmoud"
+$ git --version
 
-# Sets the default email for git to use when you commit
+git version 2.11.0.windows.1
+            </code></pre>
+            <pre class="fragment fade-up"><code>
+$ git config --global user.name "Hatem Mahmoud"
+            </code></pre>
+            <pre class="fragment fade-up"><code>
 $ git config --global user.email "hatem@expressionlab.com"
+            </code></pre>
+            <pre class="fragment fade-up"><code>
+$ git config --list
+
+user.name=Hatem Mahmoud
+user.email=hatem@expressionlab.com
+core.symlinks=false
+core.autocrlf=true
+core.fscache=true
+...
             </code></pre>
           </section>
           <section>
@@ -113,21 +142,22 @@ $ git config --global user.email "hatem@expressionlab.com"
             <pre><code>
 $ git help
             </code></pre>
-          </section>
-        </section>
-        <section>
-          <section>
-            <h1>Git Basics</h1>
+            <pre class="fragment fade-up"><code>
+$ git help config
+            </code></pre>
           </section>
           <section>
             <h2>Initializing a Repository</h2>
             <pre><code>
-# Create a directory for your project
 $ mkdir ~/my-project
+            </code></pre>
+            <pre class="fragment fade-up"><code>
 $ cd ~/my-project
-
-# Setup necessary files
+            </code></pre>
+            <pre class="fragment fade-up"><code>
 $ git init
+
+Initialized empty Git repository in ~/my-project/.git/
             </code></pre>
           </section>
           
@@ -135,22 +165,29 @@ $ git init
             <h2>Cloning an Existing Repository</h2>
             <pre><code>
 $ git clone https://github.com/HatemMahmoud/my-project.git
+
 Cloning into 'my-project'...
 remote: Counting objects: 3, done.
 remote: Total 3 (delta 0), reused 0 (delta 0)
 Unpacking objects: 100% (3/3), done.
             </code></pre>
           </section>
-          
+            
           <section>
-            <h2>File Status Lifecycle</h2>
-            <img src="images/file-status-lifecycle.png" />
+            <h2>The Three States</h2>
+            <img src="images/local-operations.png" />
           </section>
           
           <section>
-            <h2>Check Status</h2>
+            <h2>File Status Lifecycle</h2>
+            <img style="width: 95%;" src="images/file-status-lifecycle.png" />
+          </section>
+          
+          <section>
+            <h2>Checking Status</h2>
             <pre><code>
 $ git status
+
 # On branch master
 #
 # Initial commit
@@ -160,17 +197,19 @@ nothing to commit (create/copy files and use "git add" to track)
           </section>
           
           <section>
-            <h2>Creat a File</h2>
+            <h2>Creat a New File</h2>
             <pre><code>
 $ touch README
-
+            </code></pre>
+            <pre class="fragment fade-up"><code>
 $ git status
+
 # On branch master
 #
 # Initial commit
 #
 # Untracked files:
-#   (use "git add <file>..." to include in what will be committed)
+#   (use "git add &lt;file&gt;..." to include in what will be committed)
 #
 # README
 nothing added to commit but untracked files present (use "git add" to track)
@@ -178,17 +217,19 @@ nothing added to commit but untracked files present (use "git add" to track)
           </section>
           
           <section>
-            <h2>Add Changes to the Staging Area</h2>
+            <h2>Stage the New File</h2>
             <pre><code>
 $ git add README
-
+            </code></pre>
+            <pre class="fragment fade-up"><code>
 $ git status
+
 # On branch master
 #
 # Initial commit
 #
 # Changes to be committed:
-#   (use "git rm --cached <file>..." to unstage)
+#   (use "git rm --cached &lt;file&gt;..." to unstage)
 #
 # new file:   README
 #
@@ -198,12 +239,14 @@ $ git status
           <section>
             <h2>Commit Staged Files</h2>
             <pre><code>
-$ git commit -m 'My first commit'
-[master (root-commit) d3b1065] My first commit
- 1 file changed, 1 insertion(+)
- create mode 100644 README
+$ git commit -m 'Added README'
 
+[master (root-commit) d3b1065] Added README
+ 1 file changed, 1 insertion(+)
+            </code></pre>
+            <pre class="fragment fade-up"><code>
 $ git status
+
 # On branch master
 nothing to commit (working directory clean)
             </code></pre>
@@ -213,12 +256,14 @@ nothing to commit (working directory clean)
             <h2>Modify a Committed File</h2>
             <pre><code>
 $ nano README
-
+            </code></pre>
+            <pre class="fragment fade-up"><code>
 $ git status
+
 # On branch master
 # Changes not staged for commit:
-#   (use "git add <file>..." to update what will be committed)
-#   (use "git checkout -- <file>..." to discard changes in working directory)
+#   (use "git add &lt;file&gt;..." to update what will be committed)
+#   (use "git checkout -- &lt;file&gt;..." to discard changes in working directory)
 #
 # modified:   README
 #
@@ -227,39 +272,33 @@ no changes added to commit (use "git add" and/or "git commit -a")
           </section>
           
           <section>
-            <h2>Unmodify a Modified File</h2>
-            <pre><code>
-$ git checkout README
-
-$ git status
-# On branch master
-nothing to commit (working directory clean)
-            </code></pre>
-          </section>
-          
-          <section>
             <h2>View Changes</h2>
             <pre><code>
 $ nano README
-
+            </code></pre>
+            <pre class="fragment fade-up"><code>
 $ git diff
+
 diff --git a/README b/README
 index 56266d3..9cbeb31 100644
 --- a/README
 +++ b/README
 @@ -1 +1 @@
--My Project
-+My Project Updated
+-Welcome
++Welcome to My Project
             </code></pre>
           </section>
           
           <section>
-            <h2>Ignore Some Files</h2>
+            <h2>Discard Changes</h2>
             <pre><code>
-# .gitignore
-/log/*
-/tmp/*
-.DS_Store
+$ git checkout README
+            </code></pre>
+            <pre class="fragment fade-up"><code>
+$ git status
+
+# On branch master
+nothing to commit (working directory clean)
             </code></pre>
           </section>
           
@@ -267,11 +306,13 @@ index 56266d3..9cbeb31 100644
             <h2>Stage Changes</h2>
             <pre><code>
 $ git add README
-
+            </code></pre>
+            <pre class="fragment fade-up"><code>
 $ git status
+
 # On branch master
 # Changes to be committed:
-#   (use "git reset HEAD <file>..." to unstage)
+#   (use "git reset HEAD &lt;file&gt;..." to unstage)
 #
 # modified:   README
 #
@@ -282,14 +323,17 @@ $ git status
             <h2>Unstage a Staged File</h2>
             <pre><code>
 $ git reset HEAD README
+
 Unstaged changes after reset:
 M README
-
+            </code></pre>
+            <pre class="fragment fade-up"><code>
 $ git status
+
 # On branch master
 # Changes not staged for commit:
-#   (use "git add <file>..." to update what will be committed)
-#   (use "git checkout -- <file>..." to discard changes in working directory)
+#   (use "git add &lt;file&gt;..." to update what will be committed)
+#   (use "git checkout -- &lt;file&gt;..." to discard changes in working directory)
 #
 # modified:   README
 #
@@ -301,11 +345,16 @@ no changes added to commit (use "git add" and/or "git commit -a")
             <h2>Commit Changes</h2>
             <pre><code>
 $ git add .
+            </code></pre>
+            <pre class="fragment fade-up"><code>
 $ git commit -m 'Updated README'
+
 [master 1302816] Updated README
  1 file changed, 1 insertion(+), 1 deletion(-)
-
+            </code></pre>
+            <pre class="fragment fade-up"><code>
 $ git status
+
 # On branch master
 nothing to commit (working directory clean)
             </code></pre>
@@ -315,17 +364,29 @@ nothing to commit (working directory clean)
             <h2>View Commit History</h2>
             <pre><code>
 $ git log
+
 commit 1302816b21570a5ad712ee166e16e16dc12d011b
-Author: Hatem Mahmoud <hatem@expressionlab.com>
+Author: Hatem Mahmoud &lt;hatem@expressionlab.com&gt;
 Date:   Wed Nov 7 00:19:54 2012 +0200
 
     Updated README
 
 commit d3b1065899c14c192ad9af0227615f4d665d4195
-Author: Hatem Mahmoud <hatem@expressionlab.com>
+Author: Hatem Mahmoud &lt;hatem@expressionlab.com&gt;
 Date:   Tue Nov 6 23:59:26 2012 +0200
 
-    My first commit
+    Added README
+            </code></pre>
+          </section>
+          
+          <section>
+            <h2>Ignore Some Files</h2>
+            <pre><code>
+# .gitignore
+
+log/*.log
+tmp/**
+.DS_Store
             </code></pre>
           </section>
           
@@ -345,10 +406,13 @@ Date:   Tue Nov 6 23:59:26 2012 +0200
             <h2>Create a Branch</h2>
             <pre><code>
 $ git branch iss53
+            </code></pre>
+            <pre class="fragment fade-up"><code>
 $ git checkout iss53
+
 Switched to a new branch "iss53"
             </code></pre>
-            <img src="images/branching-iss53.png" />
+            <img class="fragment fade-up" src="images/branching-iss53.png" />
           </section>
           
           <section>
@@ -366,30 +430,33 @@ $ git commit -a -m 'Changes for issue #53'
             <pre><code>
 $ git checkout master
 Switched to branch "master"
-
+            </code></pre>
+            <pre class="fragment fade-up"><code>
 $ git checkout -b 'hotfix'
 Switched to a new branch "hotfix"
-
-# Update some files
-
+            </code></pre>
+            <pre class="fragment fade-up"><code>
 $ git commit -a -m 'Fixed broken feature'
 [hotfix]: created 3a0874c: "Fixed broken feature"
  1 files changed, 0 insertions(+), 1 deletions(-)
             </code></pre>
-            <img src="images/branching-hotfix.png" />
+            <img class="fragment fade-up" src="images/branching-hotfix.png" />
           </section>
           
           <section>
             <h2>Fast-forward Merge</h2>
             <pre><code>
 $ git checkout master
+            </code></pre>
+            <pre class="fragment fade-up"><code>
 $ git merge hotfix
+
 Updating f42c576..3a0874c
 Fast forward
  README |    1 -
  1 files changed, 0 insertions(+), 1 deletions(-)
             </code></pre>
-            <img src="images/branching-hotfix-merged.png" />
+            <img class="fragment fade-up" src="images/branching-hotfix-merged.png" />
           </section>
           
           <section>
@@ -397,29 +464,31 @@ Fast forward
             <pre><code>
 $ git branch -d hotfix
 Deleted branch hotfix (3a0874c).
-
+            </code></pre>
+            <pre class="fragment fade-up"><code>
 $ git checkout iss53
 Switched to branch "iss53"
-
-# Update some files
-
+            </code></pre>
+            <pre class="fragment fade-up"><code>
 $ git commit -a -m 'Finished changes for issue #53'
 [iss53]: created ad82d7a: "Finished changes for issue #53"
  1 files changed, 1 insertions(+), 0 deletions(-)
             </code></pre>
-            <img src="images/branching-iss53-finished.png" />
+            <img class="fragment fade-up" src="images/branching-iss53-finished.png" />
           </section>
           
           <section>
             <h2>Three-way Merge</h2>
             <pre><code>
 $ git checkout master
+            </code></pre>
+            <pre class="fragment fade-up"><code>
 $ git merge iss53
 Merge made by recursive.
  README |    1 +
  1 files changed, 1 insertions(+), 0 deletions(-)
             </code></pre>
-            <img src="images/branching-iss53-merge.png" />
+            <img class="fragment fade-up" src="images/branching-iss53-merge.png" />
           </section>
           
           <section>
@@ -431,16 +500,19 @@ Merge made by recursive.
             <h2>Merge Conflict</h2>
             <pre><code>
 $ git merge iss53
+
 Auto-merging index.html
 CONFLICT (content): Merge conflict in index.html
 Automatic merge failed; fix conflicts and then commit the result.
-
+            </code></pre>
+            <pre class="fragment fade-up"><code>
 $ git status
+
 index.html: needs merge
 # On branch master
 # Changed but not updated:
-#   (use "git add <file>..." to update what will be committed)
-#   (use "git checkout -- <file>..." to discard changes in working directory)
+#   (use "git add &lt;file&gt;..." to update what will be committed)
+#   (use "git checkout -- &lt;file&gt;..." to discard changes in working directory)
 #
 #   unmerged:   index.html
 #
@@ -464,18 +536,11 @@ Another content here.
 # Update some files
 
 $ git add .
+            </code></pre>
+            <pre class="fragment fade-up"><code>
+$ git commit -m 'Resolved conflict'
 
-$ git commit
-Merge branch 'iss53'
-
-Conflicts:
-  index.html
-#
-# It looks like you may be committing a MERGE.
-# If this is not correct, please remove the file
-# .git/MERGE_HEAD
-# and try again.
-#
+[master a541942] Resolved conflict
             </code></pre>
           </section>
         </section>
@@ -488,9 +553,10 @@ Conflicts:
           <section>
             <h2>Get Updates</h2>
             <pre><code>
-# Fetch updates 
+# Fetch updates
 $ git fetch origin
-
+            </code></pre>
+            <pre class="fragment fade-up"><code>
 # Fetch updates and merge them
 $ git pull
             </code></pre>
@@ -501,7 +567,8 @@ $ git pull
             <pre><code>
 # Create a remote named "origin" pointing at your repo
 $ git remote add origin https://github.com/HatemMahmoud/my-project.git
-
+            </code></pre>
+            <pre class="fragment fade-up"><code>
 # Upload your commits in the "master" branch to the repo
 $ git push origin master
             </code></pre>
@@ -510,49 +577,25 @@ $ git push origin master
         
         <section>
           <section>
-            <h1>Using GitHub</h1>
+            <h1>Trying Git</h1>
           </section>
           <section>
-            <img src="images/github.png" />
-          </section>
-          <section>
-            <img src="images/github-new-repo.png" />
-          </section>
-          <section>
-            <img src="images/github-repo.png" />
-          </section>
-          <section>
-            <img src="images/github-commits.png" />
-          </section>
-          <section>
-            <img src="images/github-branches.png" />
-          </section>
-          <section>
-            <img src="images/github-network.png" />
-          </section>
-          <section>
-            <img src="images/github-issues.png" />
-          </section>
-          <section>
-            <img src="images/github-admin.png" />
+            <a href="http://try.github.com" target="_blank"><img src="images/try-git.png" /></a>
           </section>
         </section>
         
         <section>
           <section>
-            <h1>Git Tools</h1>
+            <h1>Using GitHub</h1>
           </section>
           <section>
-            <img src="images/smartgit.png" />
+            <a href="http://github.com" target="_blank"><img src="images/github.png" /></a>
           </section>
           <section>
-            <img src="images/aptana-git.png" />
+            <img src="images/github-hello-world.png" />
           </section>
           <section>
-            <img src="images/github-mac.png" />
-          </section>
-          <section>
-            <img src="images/github-windows.png" />
+            <a href="http://desktop.github.com" target="_blank"><img src="images/github-windows.png" /></a>
           </section>
         </section>
         
@@ -567,50 +610,39 @@ $ git push origin master
             <a href="http://git-scm.com/doc" target="_blank"><img src="images/git-docs.png" /></a>
           </section>
           <section>
-            <a href="http://gitref.org" target="_blank"><img src="images/gitref.png" /></a>
-          </section>
-          <section>
             <a href="http://git-scm.com/book" target="_blank"><img src="images/pro-git.png" /></a>
           </section>
           <section>
-            <a href="http://gitimmersion.com" target="_blank"><img src="images/git-immersion.png" /></a>
-          </section>
-          <section>
-            <a href="http://try.github.com" target="_blank"><img src="images/try-git.png" /></a>
+            <img src="images/github-guides.png" />
           </section>
         </section>
         
         <section>
             <h1>Thank You!</h1>
-            <p>Hatem Mahmoud</p>
             <p>
-              <small><a href="http://www.expressionlab.com" class="roll"><span data-title="ExpressionLab.com">ExpressionLab.com</span></a></small>
+                Hatem Mahmoud<br />
+                <small><a href="mailto:hatem@expressionlab.com">hatem@expressionlab.com</a></small>
             </p>
         </section>
         
       </div>
 		</div>
+
 		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.min.js"></script>
+		<script src="js/reveal.js"></script>
+
 		<script>
-			// Full list of configuration options available here:
-			// https://github.com/hakimel/reveal.js#configuration
+			// More info https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({
-				controls: true,
-				progress: true,
 				history: true,
-
-				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/none
-
-				// Optional libraries used to extend on reveal.js
+                transition: 'convex', // none/fade/slide/convex/concave/zoom
+				// More info https://github.com/hakimel/reveal.js#dependencies
 				dependencies: [
-					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-					{ src: 'plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
-					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+                    { src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
 				]
 			});
 		</script>
